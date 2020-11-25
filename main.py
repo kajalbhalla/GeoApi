@@ -1,15 +1,22 @@
-import googlemaps
-import pandas as pd
-from datetime import datetime
+import requests
+import logging
+import time
+import json
+import pandas
+import sys
 from flask import Flask
 app = Flask(__name__)
 
 
 @app.route('/')
-def hello():
+def apig():
     """Return a friendly HTTP greeting."""
-    gmaps=googlemaps.Client(key="AIzaSyD9zIRT7YEXqFmHsxUEN4U18BLZYeW4hY")
-    return gmaps.geocode('1600 Amphitheatre Parkway,CA')
+    api_key='AIzaSyD9zIRT7YEXqFmHsxUEN4U18BLZYeW4hY'
+    url='https://maps.googleapis.com/maps/api/geocode/json?'
+    place='Dehradun'
+    res_ob=requests.get(url+'address ='+place+'&key='+api_key)
+    x=res_ob.json()
+    return x
 
 
 if __name__ == '__main__':
