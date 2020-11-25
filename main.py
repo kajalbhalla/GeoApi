@@ -14,7 +14,7 @@ def apig():
     """Return a friendly HTTP greeting."""
     gmaps=googlemaps.Client(key='AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY')
     geocode_result=gmaps.geocode('1600 Amphitheatre Parkway,CA')
-    return geocode_result
+    print(geocode_result)
     
 
 
