@@ -1,4 +1,5 @@
 import requests
+import googlemaps
 import logging
 import time
 import json
@@ -11,12 +12,10 @@ app = Flask(__name__)
 @app.route('/')
 def apig():
     """Return a friendly HTTP greeting."""
-    api_key='AIzaSyD9zIRT7YEXqFmHsxUEN4U18BLZYeW4hY'
-    url='https://maps.googleapis.com/maps/api/geocode/json?'
-    place='Dehradun'
-    res_ob=requests.get(url+'address ='+place+'&key='+api_key)
-    x=res_ob.json()
-    return x
+    gmaps=googlemaps.Client(key='AIzaSyD9zIRT7YEXqFmHsxUEN4U18BLZYeW4hY')
+    geocode_result=gmaps.geocode('1600 Amphitheatre Parkway,CA')
+    return geocode_result
+    
 
 
 if __name__ == '__main__':
