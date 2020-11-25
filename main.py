@@ -1,3 +1,6 @@
+import googlemaps
+import pandas as pd
+from datetime import datetime
 from flask import Flask
 app = Flask(__name__)
 
@@ -5,7 +8,8 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    return 'Work pls!'
+    gmaps=googlemaps.Client(key="AIzaSyD9zIRT7YEXqFmHsxUEN4U18BLZYeW4hY")
+    return gmaps.geocode('1600 Amphitheatre Parkway,CA')
 
 
 if __name__ == '__main__':
