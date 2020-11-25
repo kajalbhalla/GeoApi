@@ -5,15 +5,15 @@ import time
 import json
 import pandas
 import sys
+import geocoder
 from flask import Flask
 app = Flask(__name__)
 
 
 @app.route('/')
 def apig():
-    gmaps=googlemaps.Client(key='AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY')
-    geocode_result=gmaps.geocode('1600 Amphitheatre Parkway,CA')
-    print(geocode_result)
+    geocode_result=geocoder.ip('1600 Amphitheatre Parkway,CA')
+    print(geocode_result.latlng)
     return 'helo'
     
 
