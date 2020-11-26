@@ -11,12 +11,12 @@ app = Flask(__name__)
 
 
 @app.route('/')
+lat1 = [None] * 2
+lng1 = [None] * 2
 def apig():
     api_key='AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY'
     url='https://maps.googleapis.com/maps/api/geocode/json?'
     place=['AV JUAREZ 2318 405+LA PAZ+PUEBLA+PUE+72160','MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130']
-    lat1=[]
-    lng1=[]
     for i in range(len(place)):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
