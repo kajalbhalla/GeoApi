@@ -14,7 +14,7 @@ app = Flask(__name__)
 def apig():
     gmaps=googlemaps.Client(key='AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY')
     geocode_result=gmaps.geocode('1600 Amphitheatre Parkway,CA')
-    return str(geocode_result['results'][0]['geometry']['location'])
+    return geocode_result['results'][0]['geometry']['location']
     
   
     
