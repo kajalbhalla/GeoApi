@@ -20,8 +20,8 @@ def apig():
     for i in range(1):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
-        lat1[i]=str(x['results'][0]['geometry']['location'][lat])
-        lng1[i]=str(x['results'][0]['geometry']['location'][lng])
+        lat1[i]=str(x['results'][0]['geometry']['location']['lat'])
+        lng1[i]=str(x['results'][0]['geometry']['location']['lng'])
     return lat1+lng1
     
     
