@@ -12,9 +12,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def apig():
-    geocode_result=geocoder.ip('1600 Amphitheatre Parkway,CA')
-    print(geocode_result.latlng)
-    return 'helo'
+    api_key='AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY'
+    url='https://maps.googleapis.com/maps/api/geocode/json?'
+    place='AV JUAREZ 2318 405+LA PAZ+PUEBLA,+PUE+72160'
+    res_ob=requests.get(url+'address='+place+'&key='+api_key)
+    x=res_ob.json()
+    return x['results'][0]['geometry']['location']['lat']
+  
+    
     
 
     
