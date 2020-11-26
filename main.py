@@ -17,7 +17,7 @@ def apig():
     place=['AV JUAREZ 2318 405+LA PAZ+PUEBLA+PUE+72160','MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130']
     lat1=[]
     lng1=[]
-    for i in range(1):
+    for i in range(len(place)):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
         lat1[i]=str(x['results'][0]['geometry']['location']['lat'])
