@@ -22,7 +22,9 @@ def apig():
         x=res_ob.json()
         lat1[i]=str(x['results'][0]['geometry']['location']['lat'])
         lng1[i]=str(x['results'][0]['geometry']['location']['lng'])
-    return lat1+lng1
+    listToStr1 = ' '.join([str(elem) for elem in lat1])
+    listToStr2 = ' '.join([str(ele) for ele in lng1]) 
+    return listToStr1+listToStr2
     
     
   
