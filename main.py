@@ -17,7 +17,7 @@ def apig():
     place='AV JUAREZ 2318 405+LA PAZ+PUEBLA,+PUE+72160'
     res_ob=requests.get(url+'address='+place+'&key='+api_key)
     x=res_ob.json()
-    return str(x['results'][0]['geometry']['location']['lat'])
+    return str(x['results'][0]['geometry']['location'])
   
     
     
