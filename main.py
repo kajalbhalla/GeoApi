@@ -20,11 +20,15 @@ def apig():
            "VILLA JARDIN 118+VILLAS JARDIN+CELAYA+GTO+38035"]
     lat1=[]
     lng1=[]
-    for i in range(9):
-        res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
-        x=res_ob.json()
-        lat1.append(str(x['results'][0]['geometry']['location']['lat']))
-        lng1.append(str(x['results'][0]['geometry']['location']['lng']))
+    try:
+        for i in range(9):
+            res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
+            x=res_ob.json()
+            lat1.append(str(x['results'][0]['geometry']['location']['lat']))
+            lng1.append(str(x['results'][0]['geometry']['location']['lng']))
+     except IndexError:
+        lat1=''
+        lng1=''
     listToStr1 = ' '.join([str(elem) for elem in lat1])
     listToStr2 = ' '.join([str(ele) for ele in lng1]) 
     return listToStr1+listToStr2
