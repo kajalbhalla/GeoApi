@@ -20,7 +20,7 @@ def apig():
            'VILLA JARDIN 118+VILLAS JARDIN+CELAYA+GTO+38035']
     lat1 = []
     lng1 = []
-    for i in range(10):
+    for i in range(4):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
         lat1.append(str(x['results'][0]['geometry']['location']['lat']))
