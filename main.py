@@ -21,7 +21,7 @@ def apig():
     lat1 = [None] * 10
     lng1 = [None] * 10
     i=0
-    while i<len(place):
+    while i<7:
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
         lat1[i]=str(x['results'][0]['geometry']['location']['lat'])
