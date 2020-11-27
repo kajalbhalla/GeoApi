@@ -20,10 +20,11 @@ def apig():
     lng1=[]
     
     for i in range(6):
-        lat1.append(place[i])
-            #res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
-            #x=res_ob.json()
-            #lat1.append(str(x['results'][0]['geometry']['location']['lat']))
+        #lat1.append(place[i])
+            res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
+            x=res_ob.json()
+            y=str(x['results'][0]['geometry']['location']['lat'])
+            lat1.append(y)
             #lng1.append(str(x['results'][0]['geometry']['location']['lng']))
     
     listToStr1 = ' '.join([str(elem) for elem in lat1])
