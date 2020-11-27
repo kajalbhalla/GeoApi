@@ -26,7 +26,7 @@ def apig():
             x=res_ob.json()
             lat1.append(str(x['results'][0]['geometry']['location']['lat']))
             lng1.append(str(x['results'][0]['geometry']['location']['lng']))
-     except IndexError:
+    except IndexError:
         lat1=''
         lng1=''
     listToStr1 = ' '.join([str(elem) for elem in lat1])
