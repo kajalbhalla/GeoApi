@@ -23,7 +23,7 @@ def apig(Input_df):
     return str(x['results'][0]['geometry']['location']['lat'])+","+(str(x['results'][0]['geometry']['location']['lng']))
 dt={'place': ["AV JUAREZ 2318 405+LA PAZ+PUEBLA+PUE+72160","MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130"]}
 df = pd.DataFrame(dt) 
-df['Lat_Long']= df(apig,axis=1)
+df['place']= df(apig,axis=1)
 
     
 
