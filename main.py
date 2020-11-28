@@ -3,7 +3,7 @@ import googlemaps
 import logging
 import time
 import json
-import pandas
+import pandas as pd
 import sys
 import geocoder
 from flask import Flask
@@ -12,24 +12,17 @@ app = Flask(__name__)
 
 @app.route('/')
 def apig():
-    api_key='AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY'
-    url='https://maps.googleapis.com/maps/api/geocode/json?'
-    place=["AV JUAREZ 2318 405+LA PAZ+PUEBLA+PUE+72160","MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130","AV ESPA#ITA 1527+CENTRO+LEON+GTO+37000","HIDALGO 59+CENTRO+VILLA GUERRERO+EM+51760","MALECON 26+ACUEDUCTO DE GUADALUPE+GUSTAVO A.MADERO+CDMX+07270","CALENDULA 84+XOTEPINGO+COYOACAN+CDMX+04610",
-          "OAXACA 37 INT 3+ROMA+CUAUHTEMOC+CDMX+06700","AV JUAREZ 5107+POPULAR+CHIHUAHUA+CHI+31040","MORENA 206+DEL VALLE+BENITO JUAREZ+CDMX+03100","VILLA JARDIN 118+VILLAS JARDIN+CELAYA+GTO+38035"]
-    lat1=[]
-    lng1=[]
-    
-    for i in range(6):
-        #lat1.append(place[i])
-            res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
-            x=res_ob.json()
-            y=str(x['results'][0]['geometry']['location']['lat'])
-            lat1.append(y)
-            #lng1.append(str(x['results'][0]['geometry']['location']['lng']))
-    
-    listToStr1 = ' '.join([str(elem) for elem in lat1])
-    #listToStr2 = ' '.join([str(ele) for ele in lng1]) 
+    #api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
+    #url="https://maps.googleapis.com/maps/api/geocode/json?"
+    dt=[1,2,3,4,5]
+    Input_df=pd.DataFrame(dt)
+    #res_ob=requests.get(url+"address="+Input_df[0]+"&key="+api_key)
+    #x=res_ob.json()
+    num=Input_df.tolist()
+    listToStr1 = ' '.join([str(elem) for elem in num])
     return listToStr1
+
+
     
 
     
