@@ -14,11 +14,11 @@ app = Flask(__name__)
 def apig():
     #api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
     #url="https://maps.googleapis.com/maps/api/geocode/json?"
-    dt=[1,2,3,4,5]
+    dt={'Age': [35, 70, 45, 20]} 
     Input_df=pd.DataFrame(dt)
     #res_ob=requests.get(url+"address="+Input_df[0]+"&key="+api_key)
     #x=res_ob.json()
-    num=Input_df.tolist()
+    num=Input_df['Age'].tolist()
     listToStr1 = ' '.join([str(elem) for elem in num])
     return listToStr1
 
