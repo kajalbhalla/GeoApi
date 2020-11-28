@@ -29,7 +29,8 @@ def apig():
     listToStr1 = 'LAT:-'.join([str(elem) for elem in lat1])
     listToStr2 = 'LNG:-'.join([str(ele) for ele in lng1]) 
     return listToStr1+listToStr2
-    
+def try():
+    return 'hard one'
 
     
 
