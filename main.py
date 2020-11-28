@@ -11,20 +11,22 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def apig(Input_df):
-    api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
-    url="https://maps.googleapis.com/maps/api/geocode/json?"
-    #dt={'place': [35, 70, 45, 20]} 
-    #Input_df=pd.DataFrame(input)
-    res_ob=requests.get(url+"address="+Input_df[0]+"&key="+api_key)
-    x=res_ob.json()
-    #num=Input_df['place'].tolist()
-    #listToStr1 = ' '.join([str(elem) for elem in num])
-    return str(x['results'][0]['geometry']['location']['lat'])+","+(str(x['results'][0]['geometry']['location']['lng']))
-dt={'place': ["AV JUAREZ 2318 405+LA PAZ+PUEBLA+PUE+72160","MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130"]}
-df = pd.DataFrame(dt) 
-df['place']= df(apig,axis=1)
-
+def apig():
+    place=['AV JUAREZ 2318 405+LA PAZ+PUEBLA+PUE+72160','MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130',
+          'HIDALGO 59+CENTRO+VILLA GUERRERO+EM+51760','MALECON 26+ACUEDUCTO DE GUADALUPE+GUSTAVO A.MADERO+CDMX+07270','CALENDULA 84+XOTEPINGO+COYOACAN+CDMX+04610',
+          'OAXACA 37 INT 3+ROMA+CUAUHTEMOC+CDMX+06700','AV JUAREZ 5107+POPULAR+CHIHUAHUA+CHI+31040','MORENA 206+DEL VALLE+BENITO JUAREZ+CDMX+03100',
+           'VILLA JARDIN 118+VILLAS JARDIN+CELAYA+GTO+38035']
+    lat1=[None] * 9
+    lng1=[None] * 9
+    for i in range(9):
+        res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
+        x=res_ob.json()
+        #lat1.append(str(x['results'][0]['geometry']['location']['lat']))
+        lat1[i]=str(x['results'][0]['geometry']['location']['lat'])
+        lng1[i]=str(x['results'][0]['geometry']['location']['lng'])
+    listToStr1 = ' '.join([str(elem) for elem in lat1])
+    listToStr2 = ' '.join([str(ele) for ele in lng1]) 
+    return listToStr1+listToStr2
     
 
     
