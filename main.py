@@ -26,11 +26,9 @@ def apig():
         #lat1.append(str(x['results'][0]['geometry']['location']['lat']))
         lat1[i]=str(x['results'][0]['geometry']['location']['lat'])
         lng1[i]=str(x['results'][0]['geometry']['location']['lng'])
-    listToStr1 = 'LAT:-'.join([str(elem) for elem in lat1])
-    listToStr2 = 'LNG:-'.join([str(ele) for ele in lng1]) 
+    listToStr1 = 'LAT:- \n'.join([str(elem) for elem in lat1])
+    listToStr2 = 'LNG:- \n'.join([str(ele) for ele in lng1]) 
     return listToStr1+listToStr2
-def try():
-    return 'hard one'
 
     
 
