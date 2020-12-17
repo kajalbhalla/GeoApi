@@ -17,15 +17,16 @@ def apig():
 'AV SAN JERONIMO 389 1102 T PALATINO+LA OTRA BANDA+ALVARO OBREGON+CDMX+01090',
 'MINEROS 54+COL REAL DEL MONTE+ALVARO OBREGON+CDMX+01130',
 'PASEO DE LAS FLORES MZ 22 LT 12+PARAISO CONUTRY CLUB+EMILIANO ZAPATA+MOR+62765',
-'CALLE DE LA ROSA 21+AMADOR SALAZAR+YAUTEPEC+MOR+62733']
+'CALLE DE LA ROSA 21+AMADOR SALAZAR+YAUTEPEC+MOR+62733','Av Rodolfo Gaona ED 70 Ent B depto 104+Lomas de Sotelo ezq calle 9+MIGUEL HIDALGO+CDMX+11200']
+
 
 
 
     api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
     url="https://maps.googleapis.com/maps/api/geocode/json?"
-    lat1=[None] * 6
-    lng1=[None] * 6
-    for i in range(6):
+    lat1=[None] * 7
+    lng1=[None] * 7
+    for i in range(7):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
         #lat1.append(str(x['results'][0]['geometry']['location']['lat']))
