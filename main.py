@@ -41,6 +41,7 @@ def apig():
 
 
 
+
     api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
     url="https://maps.googleapis.com/maps/api/geocode/json?"
     lat1=[None] * 19
