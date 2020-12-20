@@ -12,15 +12,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def apig():
-    place=['C MALAGA 205+FRACC VINEDOS+DELICIAS+CHI+33068',
-'CLL RAFAELA LOPEZ DE RAYON 121+BUROCRATA+QUERETARO+QRO+76070',
-'AV OJO DE AGUA 36 A+CENTRO+PENJAMO+GTO+36900',
-'CAMPO TRES BRAZOS 29+AMPL SAN ANTONIO+AZCAPOTZALCO+CDMX+02720',
-'5 F POR 44 Y 46 394+RESIDENCIAL PENSIONES+MERIDA+YUC+97219',
-'MINORCA 43+LAS GRANJAS+HERMOSILLO+SON+83250',
-'HUETZIN 4 INT 2+COL SANTA ISABEL TOLA+GUSTAVO A MADERO+CDMX+07010',
-'C IGNACIO CENTENO 133+ZONA DE ORO I+CELAYA+GTO+38020',
-'CARACOLES 24 SM 501 M 16 L3+SM 501 PARAISO REAL+BENITO JUAREZ+QR+77533',
+    place=['CARACOLES 24 SM 501 M 16 L3+SM 501 PARAISO REAL+BENITO JUAREZ+QR+77533',
 'CARR MEX TOLUCA 5454 DEPT 502 C+EL YAQUI+CUAJIMALPA DE MORELOS+CDMX+05320',
 'CTO SAN LORENZO OTE 316 A+RDCIAL BUGAMBILIAS+PUEBLA+PUE+72580',
 'Canelo 3035+Bosques del Contry+GUADALUPE+NL+67174',
@@ -46,9 +38,9 @@ def apig():
 
     api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
     url="https://maps.googleapis.com/maps/api/geocode/json?"
-    lat1=[None] * 23
-    lng1=[None] * 23
-    for i in range(23):
+    lat1=[None] * 15
+    lng1=[None] * 15
+    for i in range(15):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
         #lat1.append(str(x['results'][0]['geometry']['location']['lat']))
