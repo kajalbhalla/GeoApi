@@ -12,13 +12,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def apig():
-    place=['NORTE 80 A 6623+SAN PEDRO EL CHICO+GUSTAVO A. MADERO+CDMX+07480',
-'FLORES NOCHEBUENA 102 108+VILLA SUR FRACC+AGUASCALIENTES+AGS+20296',
-'AVE DE LAS CARRETAS 120 INT 60 3+COLINA DEL SUR+ALVARO OBREGON+CDMX+01430',
-'CTO VILLA MILAN 185+LA CANTERA+CELAYA+GTO+38020',
-'AV 19 PONIENTE 1510 1+COL SANTIAGO+PUEBLA+PUE+72410']
-
-
+    place=['Monte Aventino 134+Fuentes del Valle+SAN PEDRO GARZA GARCIA+NL+66220',
+'CERRADA FRESNOS 44+VILLAS SANTORINI+SACRAMENTO+COA+27750',
+'2DA CDA DE OLIVO 13+FLORIDA+ALVARO OBREGON+CDMX+01030',
+'ALLENDE 2609+ZARCO+CHIHUAHUA+CHI+31020']
 
 
 
@@ -26,9 +23,9 @@ def apig():
 
     api_key="AIzaSyD9zIRT7YEXqFymHsxUEN4U18BLZYeW4hY"
     url="https://maps.googleapis.com/maps/api/geocode/json?"
-    lat1=[None] * 5
-    lng1=[None] * 5
-    for i in range(5):
+    lat1=[None] * 4
+    lng1=[None] * 4
+    for i in range(4):
         res_ob=requests.get(url+'address='+place[i]+'&key='+api_key)
         x=res_ob.json()
         #lat1.append(str(x['results'][0]['geometry']['location']['lat']))
